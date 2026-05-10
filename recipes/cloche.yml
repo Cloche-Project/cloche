@@ -1,0 +1,47 @@
+name: cloche
+description: "Cloche core base image"
+base-image: ghcr.io/ublue-os/base-main
+image-version: 44
+
+modules:
+  - type: os-release
+    properties:
+      ID: cloche
+      NAME: Cloche
+      PRETTY_NAME: Cloche 44 (Envy)
+      LOGO: system-logo-white
+      HOME_URL: https://github.com/augustofmarques/gnx
+      BUG_REPORT_URL: https://github.com/augustofmarques/cloche/issues
+      SUPPORT_URL: https://github.com/augustofmarques/cloche
+      DEFAULT_HOSTNAME: cloche
+
+  - type: files
+    files:
+      - source: common
+        destination: /
+
+  - type: rpm-ostree
+    install:
+      - cockpit
+      - git
+      - zsh
+      - btop
+      - tailscale
+      - fastfetch
+      - vim
+      - tmux
+      # distrobox provided by ublue main
+
+  - type: script
+    scripts:
+      - setup-cloche.sh
+
+  - type: systemd
+    system:
+      enabled:
+        - cockpit.socket
+        - tailscaled.service
+
+  - type: initramfs
+
+  - type: signing
