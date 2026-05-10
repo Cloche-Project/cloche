@@ -10,7 +10,7 @@ modules:
       NAME: Cloche
       PRETTY_NAME: Cloche 44 (Envy)
       LOGO: system-logo-white
-      HOME_URL: https://github.com/augustofmarques/gnx
+      HOME_URL: https://github.com/augustofmarques
       BUG_REPORT_URL: https://github.com/augustofmarques/cloche/issues
       SUPPORT_URL: https://github.com/augustofmarques/cloche
       DEFAULT_HOSTNAME: cloche

@@ -2,7 +2,6 @@
 set -eoux pipefail
 
 echo "Cloche Setup"
-
 # 
 echo "Fastfetch"
 
@@ -13,4 +12,5 @@ fi
 if [ -f /etc/skel/.zshrc ]; then
     sed -i '/alias fastfetch/d' /etc/skel/.zshrc
 fi
+plymouth-set-default-theme spinner
 echo "Finished"
