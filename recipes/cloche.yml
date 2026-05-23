@@ -32,6 +32,19 @@ modules:
       - tmux
       # distrobox provided by ublue main
 
+  - type: dnf
+    install:
+      packages:
+        - plymouth-plugin-script
+
+  - type: kargs
+    kargs:
+      - console=tty0
+    remove:
+      - rhgb
+      - quiet
+      - splash
+
   - type: script
     scripts:
       - setup-cloche.sh
@@ -41,6 +54,8 @@ modules:
       enabled:
         - cockpit.socket
         - tailscaled.service
+        - plymouth-quit-wait.service
+        - NetworkManager-wait-online.service
 
   - type: initramfs
 
