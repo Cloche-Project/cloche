@@ -40,10 +40,9 @@ modules:
   - type: kargs
     kargs:
       - console=tty0
-    remove:
-      - rhgb
-      - quiet
-      - splash
+      #- rhgb
+      #- quiet
+      #- splash
 
   - type: script
     scripts:
