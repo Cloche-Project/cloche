@@ -1,6 +1,6 @@
 [cloche]
-name=Cloche – Fedora $releasever
-baseurl=https://cloche-project.github.io/rpm-repo/fedora/$releasever/$basearch/
+name=Cloche RPM Repository
+baseurl=https://cloche-project.github.io/rpm-repo/cloche/$releasever/$basearch/
 enabled=1
 gpgcheck=1
 gpgkey=https://cloche-project.github.io/rpm-repo/RPM-GPG-KEY-cloche
