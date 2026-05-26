@@ -11,18 +11,18 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/augustofmarques/cloche/actions/workflows/build.yml">
-    <img src="https://github.com/augustofmarques/cloche/actions/workflows/build.yml/badge.svg" alt="Build Status" />
+  <a href="https://github.com/cloche-project/cloche/actions/workflows/build.yml">
+    <img src="https://github.com/cloche-project/cloche/actions/workflows/build.yml/badge.svg" alt="Build Status" />
   </a>
   <a href="https://ghcr.io/cloche-project/cloche">
     <img src="https://img.shields.io/badge/container-GHCR-blue.svg" alt="GHCR Registry" />
   </a>
-  <a href="https://github.com/augustofmarques/cloche/tags">
-    <img src="https://img.shields.io/github/v/tag/augustofmarques/cloche?label=version&color=blue&sort=semver" alt="Version" />
+  <a href="https://github.com/cloche-project/cloche/tags">
+    <img src="https://img.shields.io/github/v/tag/cloche-project/cloche?label=version&color=blue&sort=semver" alt="Version" />
   </a>
-  <img src="https://img.shields.io/github/repo-size/augustofmarques/cloche" alt="Repository Size" />
-  <img src="https://img.shields.io/github/commit-activity/m/augustofmarques/cloche" alt="Commit Activity" />
-  <img src="https://img.shields.io/github/license/augustofmarques/cloche" alt="License" />
+  <img src="https://img.shields.io/github/repo-size/cloche-project/cloche" alt="Repository Size" />
+  <img src="https://img.shields.io/github/commit-activity/m/cloche-project/cloche" alt="Commit Activity" />
+  <img src="https://img.shields.io/github/license/cloche-project/cloche" alt="License" />
 </p>
 
 ---
