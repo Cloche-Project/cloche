@@ -22,6 +22,7 @@ modules:
 
   - type: rpm-ostree
     install:
+      - iwd
       - cockpit
       - git
       - zsh
@@ -51,10 +52,13 @@ modules:
   - type: systemd
     system:
       enabled:
+        - iwd.service
         - cockpit.socket
         - tailscaled.service
         - plymouth-quit-wait.service
         - NetworkManager-wait-online.service
+      disabled:
+        - wpa_supplicant.service
 
   - type: initramfs
 

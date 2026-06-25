@@ -5,4 +5,4 @@ enabled=1
 gpgcheck=1
 gpgkey=https://cloche-project.github.io/rpm-repo/RPM-GPG-KEY-cloche
 repo_gpgcheck=0
-metadata_expire=86400
+metadata_expire=3600
