@@ -23,7 +23,7 @@ modules:
   - type: rpm-ostree
     install:
       - iwd
-      - tlp
+      #- tlp
       - cockpit
       - git
       - zsh
