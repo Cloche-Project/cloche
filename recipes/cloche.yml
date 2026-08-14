@@ -32,6 +32,7 @@ modules:
       - fastfetch
       - vim
       - tmux
+      - cargo
       # distrobox provided by ublue main
 
   - type: dnf
