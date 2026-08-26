@@ -34,6 +34,8 @@ modules:
       - tmux
       - cargo
       - newt
+      - lorax
+      - xorriso
       # distrobox provided by ublue main
 
   - type: dnf
