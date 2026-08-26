@@ -33,6 +33,7 @@ modules:
       - vim
       - tmux
       - cargo
+      - newt
       # distrobox provided by ublue main
 
   - type: dnf
