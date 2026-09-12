@@ -58,3 +58,23 @@ jobs:
           tags: latest, main
           # enabled by default, disable if your image is small and you want faster builds
           maximize_build_space: true
+
+      - name: Resolve published image reference
+        run: |
+          NAME=$(yq -r '.name' "recipes/${{ matrix.recipe }}")
+          echo "IMAGE_TAG=ghcr.io/cloche-project/${NAME}:latest" >> "$GITHUB_ENV"
+
+      - name: Scan image with Trivy
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: ${{ env.IMAGE_TAG }}
+          format: table
+          exit-code: '0' # report-only for now; flip to '1' once noise is triaged (Fase 3)
+          severity: 'CRITICAL,HIGH'
+
+      - name: Scan image with Grype
+        uses: anchore/scan-action@v4
+        with:
+          image: ${{ env.IMAGE_TAG }}
+          fail-build: false # report-only, same reasoning as above
+          severity-cutoff: high
