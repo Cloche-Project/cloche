@@ -68,9 +68,13 @@ jobs:
           fi
           echo "IMAGE_TAG=ghcr.io/cloche-project/${NAME}:latest" >> "$GITHUB_ENV"
 
+      - name: Free disk space before scanning
+        run: docker system prune -af
+
       - name: Scan image with Trivy
         uses: aquasecurity/trivy-action@a9c7b0f06e461e9d4b4d1711f154ee024b8d7ab8 # v0.36.0
         continue-on-error: true
+        timeout-minutes: 15
         with:
           image-ref: ${{ env.IMAGE_TAG }}
           format: table
@@ -80,6 +84,7 @@ jobs:
       - name: Scan image with Grype
         uses: anchore/scan-action@8576240a41341d866dbd7ebc72cd9fc0ef023f54 # v7.4.2
         continue-on-error: true
+        timeout-minutes: 15
         with:
           image: ${{ env.IMAGE_TAG }}
           fail-build: false # report-only, same reasoning as above
