@@ -86,6 +86,6 @@ jobs:
         continue-on-error: true
         timeout-minutes: 15
         with:
-          image: ${{ env.IMAGE_TAG }}
+          image: registry:${{ env.IMAGE_TAG }}
           fail-build: false # report-only, same reasoning as above
           severity-cutoff: high
