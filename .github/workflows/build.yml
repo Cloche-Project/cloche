@@ -59,6 +59,26 @@ jobs:
           # enabled by default, disable if your image is small and you want faster builds
           maximize_build_space: true
 
+  scan:
+    name: Scan Image
+    needs: bluebuild
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    strategy:
+      fail-fast: false
+      matrix:
+        recipe:
+          - cloche.yml
+          #- standard-gnome.yml
+          #- deck.yml
+          #- deck-gnome.yml
+          #- cloche-xe.yml
+          #- cloche-xe-gnome.yml
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
       - name: Resolve published image reference
         run: |
           NAME=$(yq -r '.name' "recipes/${{ matrix.recipe }}")
@@ -67,9 +87,6 @@ jobs:
             exit 1
           fi
           echo "IMAGE_TAG=ghcr.io/cloche-project/${NAME}:latest" >> "$GITHUB_ENV"
-
-      - name: Free disk space before scanning
-        run: docker system prune -af
 
       - name: Scan image with Trivy
         uses: aquasecurity/trivy-action@a9c7b0f06e461e9d4b4d1711f154ee024b8d7ab8 # v0.36.0
