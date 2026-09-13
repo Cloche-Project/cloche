@@ -98,11 +98,6 @@ jobs:
           exit-code: '0' # report-only for now; flip to '1' once noise is triaged (Fase 3)
           severity: 'CRITICAL,HIGH'
 
-      - name: Scan image with Grype
-        uses: anchore/scan-action@8576240a41341d866dbd7ebc72cd9fc0ef023f54 # v7.4.2
-        continue-on-error: true
-        timeout-minutes: 15
-        with:
-          image: registry:${{ env.IMAGE_TAG }}
-          fail-build: false # report-only, same reasoning as above
-          severity-cutoff: high
+      # Grype (via syft/stereoscope) reliably OOMs analyzing rpm-ostree/OSTree
+      # image filesystems - known upstream issue, not specific to this repo
+      # (see anchore/syft#3800). Not run here; Trivy covers this image alone.
