@@ -79,7 +79,7 @@ sudo bluebuild generate-iso --iso-name cloche-headless.iso image ghcr.io/augusto
 Images are cryptographically signed via Sigstore Cosign. To verify the integrity of the downloaded image layer, fetch the public key from this repository and run:
 
 ```Bash
-cosign verify --key cosign verify --key cosign.pub ghcr.io/cloche-project/cloche:latest
+cosign verify --key cosign.pub ghcr.io/cloche-project/cloche:latest
 ```
 
 **Note: For systems running Secure Boot, ensure you enroll the public key (secure_boot.der) before applying the system rebase.**
