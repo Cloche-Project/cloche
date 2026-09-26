@@ -62,7 +62,7 @@ modules:
         - tailscaled.service
         - plymouth-quit-wait.service
         - NetworkManager-wait-online.service
-      disabled:
+      masked:
         - wpa_supplicant.service
 
   - type: initramfs
